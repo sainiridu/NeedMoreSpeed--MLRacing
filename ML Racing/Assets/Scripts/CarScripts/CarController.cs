@@ -168,9 +168,9 @@ public class CarController : MonoBehaviour
         horizontalInput = horizontal;
     }
 
-    public void StopCompletely()
+    public float GetAccelerationInput()
     {
-        speedInput = 0;
-        turnInput = 0;
+        return verticalInput;
     }
+
 }
