@@ -6786,7 +6786,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 1
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: default
   TeamId: 0
   m_UseChildSensors: 1
@@ -13658,7 +13658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960592110377466}
   m_LocalRotation: {x: 0.2588186, y: -0, z: -0, w: 0.965926}
-  m_LocalPosition: {x: -7.26838, y: 4.9697475, z: 9.738093}
+  m_LocalPosition: {x: -12.37062, y: 4.9697475, z: 6.5312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13795,8 +13795,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960592142859774}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 298.89, y: 0, z: 98.51}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23348,8 +23348,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960592899183702}
-  m_LocalRotation: {x: 0.0256399, y: 0.97151446, z: -0.19996022, w: 0.124572515}
-  m_LocalPosition: {x: -7.26838, y: 4.9697475, z: 9.738093}
+  m_LocalRotation: {x: 0.08469985, y: 0.8888261, z: -0.18294089, w: 0.41151774}
+  m_LocalPosition: {x: -12.37062, y: 4.9697475, z: 6.5312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28197,7 +28197,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960592991955830}
-  m_LocalRotation: {x: -0.003811778, y: 0.87347066, z: -0.4699716, w: 0.12712666}
+  m_LocalRotation: {x: -0.012591979, y: 0.79912716, z: -0.4299708, w: 0.41995516}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47091,7 +47091,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960593693299494}
-  m_LocalRotation: {x: -0.007475416, y: 0.8866575, z: -0.4445927, w: 0.12696384}
+  m_LocalRotation: {x: -0.02469467, y: 0.8111916, z: -0.406752, w: 0.41941753}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51985,7 +51985,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400960593910302359}
-  m_LocalRotation: {x: -0.011108732, y: 0.8990274, z: -0.41901562, w: 0.12669772}
+  m_LocalRotation: {x: -0.036697116, y: 0.82250863, z: -0.38335174, w: 0.4185382}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52156,8 +52156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTimeToReachNextCheckpoint: 30
   TimeLeft: 30
+  currentLapNum: 0
+  carPositionInRace: 0
   aiAgent: {fileID: 2777580274398942245}
   nextCheckPointToReach: {fileID: 0}
+  carpositionText: {fileID: 0}
 --- !u!1 &6570483430225881153
 GameObject:
   m_ObjectHideFlags: 0

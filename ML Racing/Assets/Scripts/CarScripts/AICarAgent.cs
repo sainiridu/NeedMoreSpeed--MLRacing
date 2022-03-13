@@ -24,7 +24,7 @@ public class AICarAgent : Agent
     private Quaternion defaultSphereRot;
 
     private void Awake()
-    {
+    { 
         carController = GetComponent<CarController>();
         defaultSpherePos = carSphereTransform.localPosition;
         defaultSphereRot = this.transform.localRotation;
@@ -69,56 +69,5 @@ public class AICarAgent : Agent
     }
 
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.TryGetComponent<Checkpoint>(out Checkpoint checkpoint))
-    //     {
-    //         if (other.transform == currentActiveCheckpoint)
-
-    //             if (this.gameObject == trackCheckPoints.collidedCar && checkpoint.gameObject == trackCheckPoints.collidedCheckpoint)
-    //             {
-    //                 currentActiveCheckpoint = trackCheckPoints.GetNextCheckpoint(this);
-    //                 AddReward(+0.1f);
-    //                 //Debug.Log(other.transform.name + " " + currentActiveCheckpoint.name + " " + this.transform.name);
-    //                 Debug.Log("Checkpoint");
-    //             }
-    //             //  else if (this.gameObject == trackCheckPoints.collidedCar && !checkpoint.gameObject == trackCheckPoints.collidedCheckpoint)
-    //             //  {
-    //             //      AddReward(-0.1f);
-    //             //  }
-
-    //     }
-
-
-    //     else if (other.TryGetComponent<FinishLine>(out FinishLine finishLine1))
-    //     {
-
-    //         trackCheckPoints.ResetCheckpoints(this);
-    //         //carController.StopCompletely();
-    //         Debug.Log("Finish" + this.transform.name);
-    //         AddReward(+5f);
-    //         EndEpisode();
-    //     }
-
-    // }
-    // private void OnCollisionEnter(Collision collision)
-    // {
-
-    //     if (collision.gameObject.TryGetComponent<Wall>(out Wall wall))
-    //     {
-    //         Debug.Log("Wall");
-    //         AddReward(-0.1f);
-    //         //EndEpisode();
-    //     }
-    // }
-
-    // // private void OnCollisionStay(Collision collisionInfo)
-    // // {
-    // //     if (collisionInfo.gameObject.TryGetComponent<Wall>(out Wall wall))
-    // //     {
-    // //         Debug.Log("WallStay");
-    // //         AddReward(-0.0001f);
-    // //         //EndEpisode();
-    // //     }
-    // // }
+    
 }

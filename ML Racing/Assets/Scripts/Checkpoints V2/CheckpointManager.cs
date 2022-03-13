@@ -1,26 +1,32 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CheckpointManager : MonoBehaviour
 {
     public float MaxTimeToReachNextCheckpoint = 30f;
     public float TimeLeft = 30f;
-    public int numberOfLaps;
+    //public int numberOfLaps;
     public int currentLapNum;
+    public int carPositionInRace;
+
+    public int totalCarNum;
     public AICarAgent aiAgent;
     public Checkpoint nextCheckPointToReach;
+    public TextMeshProUGUI carpositionText;
 
     private int CurrentCheckpointIndex;
     private List<Checkpoint> Checkpoints;
     private Checkpoint lastCheckpoint;
-
-    public event Action<Checkpoint> reachedCheckpoint;
+    private Checkpoints _checkpoints;
+    //public event Action<Checkpoint> reachedCheckpoint;
 
     void Awake()
     {
+        totalCarNum = GameObject.FindGameObjectsWithTag("Car").Length;
         Checkpoints = FindObjectOfType<Checkpoints>().checkPoints;
+        _checkpoints = FindObjectOfType<Checkpoints>();
         currentLapNum = 1;
         ResetCheckpoints();
     }
@@ -49,21 +55,34 @@ public class CheckpointManager : MonoBehaviour
         if (nextCheckPointToReach != checkpoint) return;
 
         lastCheckpoint = Checkpoints[CurrentCheckpointIndex];
-        reachedCheckpoint?.Invoke(checkpoint);
+        //reachedCheckpoint?.Invoke(checkpoint);
         CurrentCheckpointIndex++;
 
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
-            Debug.Log("Finish");
+            if (currentLapNum >= _checkpoints.numberOfLaps)
+            {
+                _checkpoints.raceFinished = true;
+                Debug.Log("Finished");
+                aiAgent.AddReward(5f);
+                ResetCheckpoints();
+                ResetPositions();
+
+            }
+            Debug.Log("Lap");
             aiAgent.AddReward(2.5f);
             //aiAgent.EndEpisode();
             ResetCheckpoints();
+            ResetPositions();
         }
         else
         {
             aiAgent.AddReward((0.5f) / Checkpoints.Count);
             Debug.Log("Checkpoint");
             SetNextCheckpoint();
+            Checkpoints[CurrentCheckpointIndex].UpdatePositions(this);
+            //carpositionText.text = carPositionInRace.ToString();
+
         }
     }
 
@@ -79,6 +98,14 @@ public class CheckpointManager : MonoBehaviour
             TimeLeft = MaxTimeToReachNextCheckpoint;
             nextCheckPointToReach = Checkpoints[CurrentCheckpointIndex];
 
+        }
+    }
+
+    private void ResetPositions()
+    {
+        foreach (Checkpoint checkpoint in Checkpoints)
+        {
+            checkpoint.carsPassedThrough = 0;
         }
     }
 }
