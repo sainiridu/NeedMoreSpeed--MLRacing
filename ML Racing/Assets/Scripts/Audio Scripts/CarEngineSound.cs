@@ -8,7 +8,7 @@ public class CarEngineSound : MonoBehaviour
     [SerializeField] private float minPitch = 0.75f;
     [SerializeField] private float maxPitch = 1f;
     [SerializeField] private CarController carController;
-    private AudioSource audioSource;
+    [HideInInspector] public AudioSource audioSource;
 
 
 

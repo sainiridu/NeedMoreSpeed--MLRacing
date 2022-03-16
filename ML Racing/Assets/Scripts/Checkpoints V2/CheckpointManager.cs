@@ -15,11 +15,11 @@ public class CheckpointManager : MonoBehaviour
     public AICarAgent aiAgent;
     public Checkpoint nextCheckPointToReach;
     public TextMeshProUGUI carpositionText;
-
+    public Checkpoints _checkpoints;
     private int CurrentCheckpointIndex;
     private List<Checkpoint> Checkpoints;
     private Checkpoint lastCheckpoint;
-    private Checkpoints _checkpoints;
+    
     //public event Action<Checkpoint> reachedCheckpoint;
 
     void Awake()
@@ -65,15 +65,20 @@ public class CheckpointManager : MonoBehaviour
                 _checkpoints.raceFinished = true;
                 Debug.Log("Finished");
                 aiAgent.AddReward(5f);
+
                 ResetCheckpoints();
                 ResetPositions();
 
             }
-            Debug.Log("Lap");
-            aiAgent.AddReward(2.5f);
-            //aiAgent.EndEpisode();
-            ResetCheckpoints();
-            ResetPositions();
+            else
+            {
+                Debug.Log("Lap");
+                aiAgent.AddReward(2.5f);
+                currentLapNum++;
+                //aiAgent.EndEpisode();
+                ResetCheckpoints();
+                ResetPositions();
+            }
         }
         else
         {

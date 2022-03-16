@@ -53,6 +53,7 @@ namespace Michsky.UI.ModernUIPack
                 return;
 
             InitializeWindows();
+            OpenFirstTab();
         }
 
         void OnEnable()

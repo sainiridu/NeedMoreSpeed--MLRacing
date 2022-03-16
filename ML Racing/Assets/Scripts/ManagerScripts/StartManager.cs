@@ -11,10 +11,22 @@ public class StartManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI screen_Center_Text;
 
+    [Range(1, 50)] public int totalNumberOfLaps;
+
     private UILookatScript[] uILookatScripts;
 
     private AudioSource startCoundownAudioSource;
     public bool raceStarted;
+
+    void Awake()
+    {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+
+
     void Start()
     {
         startCoundownAudioSource = GetComponent<AudioSource>();
@@ -24,6 +36,8 @@ public class StartManager : MonoBehaviour
         {
             overheadUI.gameObject.SetActive(false);
         }
+        screen_Center_Text.fontSize = 38;
+        screen_Center_Text.text = "RACE STARTING SOON";
         StartCoroutine(StartRace());
     }
 
@@ -32,6 +46,7 @@ public class StartManager : MonoBehaviour
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(maxTimeToStart - 3);
         startCoundownAudioSource.Play();
+        screen_Center_Text.fontSize = 264;
         screen_Center_Text.text = "3";
 
         yield return new WaitForSeconds(1);
